@@ -38,7 +38,7 @@ public class EmployerProfile extends BaseEntity {
     @Column(name = "verified_identity", nullable = false)
     private Boolean verifiedIdentity = false;
 
-    // Constructeurs, getters et setters
+
     public EmployerProfile() {}
 
     public User getUser() { return user; }
