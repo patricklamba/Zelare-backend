@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
-                        .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
