@@ -25,3 +25,11 @@ logs/
 
 ### VS Code ###
 .vscode/
+
+# Fichiers de configuration sensibles
+src/main/resources/application-dev.yml
+src/main/resources/application-prod.yml
+src/main/resources/application.yml
+
+# Et créez des fichiers exemple
+src/main/resources/application-example.yml
