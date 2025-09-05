@@ -1,9 +1,12 @@
 package com.zelare.backend.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import com.zelare.backend.entity.Enums.ServiceType;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "cleaner_profiles")
@@ -11,6 +14,7 @@ public class CleanerProfile extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     @Min(18)
@@ -55,7 +59,10 @@ public class CleanerProfile extends BaseEntity {
 
     // Constructeurs, getters et setters
     public CleanerProfile() {}
-
+    @JsonProperty("userId")
+    public UUID getUserId() {
+        return user != null ? user.getId() : null;
+    }
     // Tous les getters et setters...
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
